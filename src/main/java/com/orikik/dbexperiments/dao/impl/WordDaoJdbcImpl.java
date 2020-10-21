@@ -33,7 +33,7 @@ public class WordDaoJdbcImpl implements WordDao {
 
     @Override
     public WordEntity createNewWord(WordEntity wordEntity) {
-        Long id = jdbcTemplate.queryForObject("select nextval('users_seq')", Long.class);
+        Long id = jdbcTemplate.queryForObject("select nextval('words_seq')", Long.class);
 
         jdbcTemplate.update("insert into words (id, word, description) values (?,?,?)", id, wordEntity.getWord(),
                 wordEntity.getDescription());

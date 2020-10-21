@@ -35,7 +35,7 @@ public class UserDaoJdbcImpl implements UserDao {
     @Override
     public UserEntity createNewUser(UserEntity userEntity) {
         Long id = jdbcTemplate.queryForObject("select nextval('users_seq')", Long.class);
-        jdbcTemplate.update("insert into users (id, username, password) values (?,?,?);", id,
+        jdbcTemplate.update("insert into users (id, username, password) values (?,?,?)", id,
                 userEntity.getUsername(), userEntity.getPassword());
         userEntity.setId(id);
         return userEntity;
