@@ -54,8 +54,8 @@ public class UserDaoNamedJdbcImpl implements UserDao {
         params.addValue("id", userEntity.getId());
         params.addValue("new_username", userEntity.getUsername());
         params.addValue("new_password", userEntity.getPassword());
-        namedParameterJdbcTemplate.update("UPDATE users SET username=:new_username, password=:new_password where id=:id",
-                params);
+        namedParameterJdbcTemplate
+                .update("UPDATE users SET username=:new_username, password=:new_password where id=:id", params);
         return userEntity;
     }
 }
